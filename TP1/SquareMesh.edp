@@ -1,0 +1,21 @@
+// SimpleMesh.edp (freefem++)
+// Freefem++ : http://www.freefem.org/ff++/
+// Author : F. De Vuyst -- Dec 2013
+//
+border bord1(t=0,4){x=t; y=0;
+label=0;}
+border bord2(t=0,4){x=4; y=t;
+label=0;}
+border bord3(t=4,0){x=t; y=4; label=0;}
+border bord4(t=4,0){x=0; y=t;
+label=0;}
+// ATTENTION : les bords sont orientés
+// sens trigo = on prend l'intérieur défini par les bords
+//
+plot(bord1(20)+bord2(20)+bord3(20)+bord4(20));
+//
+mesh Th = buildmesh(bord1(20)+bord2(20)+bord3(20)+bord4(20));
+plot(Th);
+//
+savemesh(Th, "square.amdba");
+// Done :).

@@ -1,0 +1,22 @@
+// SimpleMesh.edp (freefem++)
+// Freefem++ : http://www.freefem.org/ff++/
+// Author : F. De Vuyst -- Dec 2013
+//
+
+border bord1(t=0,1){x=t; y=0; label=1;}
+border bord2(t=0,1){x=1; y=t; label=1;}
+border bord3(t=1,0){x=t; y=1; label=1;}
+border bord4(t=1,0){x=0; y=t; label=1;}
+
+//
+// ATTENTION : les bords sont orientes.
+//
+
+//
+plot(bord1(20)+bord2(20)+bord3(10)+bord4(10));
+//
+mesh Th = buildmesh(bord1(20)+bord2(20)+bord3(10)+bord4(10));
+plot(Th);
+//
+savemesh(Th, "simple.amdba");
+// Done :).
