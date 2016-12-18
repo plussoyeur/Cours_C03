@@ -1,0 +1,21 @@
+%  Perte de la coercivite
+
+mesh = lect_mesh('square');
+x = mesh.som_coo(:,1);
+y = mesh.som_coo(:,2);
+
+% Coefficient de diffusion
+kappa = ones(mesh.nbt,1);
+beta = ones(2,1);
+
+u = 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Test de l'assemblage de C
+mesh
+C = assemb_C(beta,mesh);
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
