@@ -25,18 +25,18 @@ inconnues = setdiff(1:mesh.nbs, dir);
 A_tronc = A(inconnues,inconnues);
 M_tronc = M(inconnues,inconnues);
 
-
+nb = 20;
 % Recuperation des vecteurs propres et valeurs propres
-[EigVect,EigVal] = eigs(A_tronc,M_tronc,20,9.0);
+[EigVect,EigVal] = eigs(A_tronc,M_tronc,nb,9.0);
 nb_degen = find(diff(diag(EigVal)) == 0);
 if (isempty(nb_degen))
     disp(['Il n''y a pas de valeurs propres degenerees.']);
 end
     
-phi = zeros(mesh.nbs,20);
+phi = zeros(mesh.nbs,nb);
 [maxVal,maxInd] = max(abs(EigVect));
 
-for k= 1:20
+for k= 1:nb
     phi(inconnues,k) = sign(EigVect(maxInd(k),k))*EigVect(:,k)/maxVal(k);
 end
 
@@ -56,7 +56,7 @@ y = mesh.som_coo(:,2);
 figure(1)
 trimesh(tri,x,y,us)
 
-% for j=1:20
+% for j=1:nb
 %    subplot(4,5,21-j)
 %    trimesh(tri,x,y,u)
 % end
