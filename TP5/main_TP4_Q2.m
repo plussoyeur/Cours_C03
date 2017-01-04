@@ -1,7 +1,7 @@
 %clear all;
 
 % Lecture du mesh
-mesh = raf_mesh(raf_mesh(raf_mesh(lect_mesh('L0'))));
+mesh = lect_mesh('L0');
 
 % choix de kappa
 kappa = ones(mesh.nbt,1);
