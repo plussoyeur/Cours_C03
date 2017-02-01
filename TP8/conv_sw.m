@@ -28,6 +28,9 @@ for ia=1:mesh.nba
     
     nu = [N1_KL(ia); N2_KL(ia)];
     
+    % Mesure de l'arete
+    mesA = mesh.fac_mes(ia);
+    
     % -- Flux pour aretes interieures
     if(mesh.fac_zon(ia) == 0)
         phi = 0.5*( F_dot_nu(nu, Vold_t(:,ie(1))) + ...                 

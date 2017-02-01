@@ -13,7 +13,7 @@ tri = mesh.elm_som;
 V_t = init_sw(mesh); % solution par triangle
 
 % Choix de dt et de T
-T = 6.8;
+T = 10;
 dt = 0.05;
 
 t = 0;
@@ -21,7 +21,7 @@ i = 0;
 while(t < T)
     i = i +1;
     t = t + dt;
-    V_t = conv_sw(mesh, V_t, dt);
+    V_t = conv_sw_2(mesh, V_t, dt);
     V_s = tri_to_sum(mesh,V_t(1,:));
     
     % Affichage
