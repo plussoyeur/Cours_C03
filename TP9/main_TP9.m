@@ -16,7 +16,7 @@ ysol = yfonc(x,y);
 
 %-- Donnees
 Gammam = [];
-dt = .1;
+dt = .01;
 g = @(x,y) 1;
 t = 0;
 T = pi;
@@ -26,15 +26,26 @@ trisurf(tri,x,y,ysol);
 
 
 %-- Iteration
-% while(t < T)
-%    t = t + dt; 
-%    ysol = convect(mesh,u,ysol,Gammam,g,dt);
-%    
+while(t < T)
+   t = t + dt; 
+   ysol = convect(mesh,u,ysol,Gammam,g,dt);
+   
 %    clf();
-%    %subplot(1,2,1), trisurf(tri,x,y,ysol);
-%    %subplot(1,2,2), tri_contour(tri,x,y,ysol, 0:0.05:1); grid;
-%    trisurf(tri,x,y,ysol)
+%    subplot(1,2,1), trisurf(tri,x,y,ysol);
+%    subplot(1,2,2), tri_contour(tri,x,y,ysol, 0:0.05:1); grid;
+%    %trisurf(tri,x,y,ysol)
 %    axis([-1 1 , -1 1]);
 %    view(-29,46);
 %    drawnow();
-% end
+   
+clf();
+h_tri = trisurf(tri, x, y, ysol);
+light
+lighting gouraud
+material dull
+shading interp
+set(h_tri, 'EdgeColor', 'none');
+axis([-1 1 -1 1 0 1]);
+drawnow();
+
+end
