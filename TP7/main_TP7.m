@@ -8,10 +8,10 @@ mesh = face_number(mesh); % Structure de donnees VF
 % Donnes initiales
 T = pi;
 deltat = 0.015;
-u0 = @(x,y)(exp(-50*((x-0.4).^2+(y-0.0).^2)) ); % donnee initiale exp
+%u0 = @(x,y)(exp(-50*((x-0.4).^2+(y-0.0).^2)) ); % donnee initiale exp
 u0 = @(x,y)( 0+((x-0.4).^2+(y-0.0).^2)<=0.04);
 %
-snew_t = init(u0,mesh)
+snew_t = init(u0,mesh);
 %
 
 % Boucle sur le temps
@@ -28,8 +28,8 @@ while(t < T)
     y = mesh.som_coo(:,2);
     clf();
     
-    trisurf(tri, x, y, snew_s);
-    %subplot(1,2,1), trisurf(tri, x, y, snew_s);
-    %subplot(1,2,2), tri_contour(tri, x, y, sol_s, 0:0.05:1); grid;
+    %trisurf(tri, x, y, snew_s);
+    subplot(1,2,1), trisurf(tri, x, y, snew_s);
+    subplot(1,2,2), tri_contour(tri, x, y, snew_s, 0:0.05:1); grid;
     drawnow();  
 end;
